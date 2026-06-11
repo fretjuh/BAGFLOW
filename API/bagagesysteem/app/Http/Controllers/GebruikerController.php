@@ -10,7 +10,7 @@ class GebruikerController extends Controller
 {
     public function index()
     {
-        $gebruikers = User::all(['id', 'name', 'email', 'role']);
+        $gebruikers = User::all(['id', 'naam', 'email', 'role']);
 
         return response()->json([
             'success' => true,
@@ -21,24 +21,24 @@ class GebruikerController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name'     => 'required|string',
-            'email'    => 'required|email|unique:users,email',
-            'password' => 'required|min:8',
-            'role'     => 'required|in:medewerker,admin',
+            'naam'      => 'required|string',
+            'email'     => 'required|email|unique:gebruikers,email',
+            'wachtwoord'=> 'required|min:8',
+            'role'      => 'required|in:medewerker,admin',
         ]);
 
         $gebruiker = User::create([
-            'name'     => $request->name,
-            'email'    => $request->email,
-            'password' => Hash::make($request->password),
-            'role'     => $request->role,
+            'naam'       => $request->naam,
+            'email'      => $request->email,
+            'wachtwoord' => Hash::make($request->wachtwoord),
+            'role'       => $request->role,
         ]);
 
         return response()->json([
             'success' => true,
             'data' => [
                 'id'    => $gebruiker->id,
-                'name'  => $gebruiker->name,
+                'naam'  => $gebruiker->naam,
                 'email' => $gebruiker->email,
                 'role'  => $gebruiker->role,
             ]

@@ -8,15 +8,19 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::create('gebruikers', function (Blueprint $table) {
+            $table->id();
+            $table->string('naam');
             $table->enum('role', ['medewerker', 'admin'])->default('medewerker');
+            $table->string('email')->unique();
+            $table->string('wachtwoord');
+            $table->rememberToken();
+            $table->timestamps();
         });
     }
 
     public function down(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('role');
-        });
+        Schema::dropIfExists('gebruikers');
     }
 };

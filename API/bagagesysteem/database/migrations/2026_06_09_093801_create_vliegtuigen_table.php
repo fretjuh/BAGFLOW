@@ -13,18 +13,12 @@ return new class extends Migration
 {
     Schema::create('vliegtuigen', function (Blueprint $table) {
         $table->id();
-        $table->foreignId('vluchtschema_id')
-              ->nullable()
-              ->constrained('vluchtschemas')
-              ->nullOnDelete();
+        $table->unsignedBigInteger('vluchtschema_id')->nullable();
         $table->foreignId('gate_id')
               ->nullable()
               ->constrained('gates')
               ->nullOnDelete();
-        $table->foreignId('model_id')
-              ->nullable()
-              ->constrained('vliegtuigen')
-              ->nullOnDelete();
+        $table->unsignedBigInteger('model_id')->nullable();
         $table->string('vliegmaatschappij', 100);
         $table->timestamps();
     });

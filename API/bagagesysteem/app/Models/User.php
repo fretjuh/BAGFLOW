@@ -9,20 +9,26 @@ class User extends Authenticatable
 {
     use HasApiTokens;
 
+    protected $table = 'gebruikers';
+
     protected $fillable = [
-        'name',
+        'naam',
         'email',
-        'password',
+        'wachtwoord',
         'role',
     ];
 
     protected $hidden = [
-        'password',
+        'wachtwoord',
         'remember_token',
     ];
 
     protected $casts = [
-        'email_verified_at' => 'datetime',
-        'password'          => 'hashed',
+        'wachtwoord' => 'hashed',
     ];
+
+    public function getAuthPassword()
+    {
+        return $this->wachtwoord;
+    }
 }
