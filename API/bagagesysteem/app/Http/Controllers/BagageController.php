@@ -55,7 +55,7 @@ class BagageController extends Controller
         ], 201);
     }
 
-    public function updatestatus_bagage(Request $request, $id)
+    public function updateStatusBagage(Request $request, $id)
     {
         $bagage = Bagage::find($id);
 
