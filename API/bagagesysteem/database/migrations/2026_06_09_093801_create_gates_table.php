@@ -15,6 +15,7 @@ return new class extends Migration
         $table->id();
         $table->string('naam', 50);
         $table->string('positie', 50);
+        $table->boolean('is_open')->default(false);
         $table->string('omschrijving', 255)->nullable();
         $table->timestamps();
     });

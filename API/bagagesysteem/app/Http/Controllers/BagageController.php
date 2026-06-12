@@ -9,7 +9,7 @@ class BagageController extends Controller
 {
     public function index()
     {
-        $bagage = Bagage::with('status')->get();
+        $bagage = Bagage::with('status_bagage')->get();
 
         return response()->json([
             'success' => true,
@@ -19,7 +19,7 @@ class BagageController extends Controller
 
     public function show($id)
     {
-        $bagage = Bagage::with('status')->find($id);
+        $bagage = Bagage::with('status_bagage')->find($id);
 
         if (!$bagage) {
             return response()->json([
@@ -40,7 +40,7 @@ class BagageController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'status_bagage_id' => 'required|exists:status_bagage,id',
+            'status_bagage_bagage_id' => 'required|exists:status_bagage_bagage,id',
             'omschrijving'     => 'nullable|string',
             'inlevertijd'      => 'required|date',
             'rfid'             => 'required|string|unique:bagage,rfid',
@@ -55,7 +55,7 @@ class BagageController extends Controller
         ], 201);
     }
 
-    public function updateStatus(Request $request, $id)
+    public function updatestatus_bagage(Request $request, $id)
     {
         $bagage = Bagage::find($id);
 
@@ -70,15 +70,15 @@ class BagageController extends Controller
         }
 
         $request->validate([
-            'status_bagage_id' => 'required|exists:status_bagage,id',
+            'status_bagage_bagage_id' => 'required|exists:status_bagage_bagage,id',
         ]);
 
-        $bagage->status_bagage_id = $request->status_bagage_id;
+        $bagage->status_bagage_bagage_id = $request->status_bagage_bagage_id;
         $bagage->save();
 
         return response()->json([
             'success' => true,
-            'data' => $bagage->load('status')
+            'data' => $bagage->load('status_bagage')
         ]);
     }
 }
