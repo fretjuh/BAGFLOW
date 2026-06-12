@@ -21,7 +21,7 @@ Route::prefix('v1')->group(function () {
     Route::get('/bagage', [BagageController::class, 'index']);
     Route::get('/bagage/{id}', [BagageController::class, 'show']);
     Route::post('/bagage', [BagageController::class, 'store']);
-    Route::patch('/bagage/{id}/status', [BagageController::class, 'updateStatus']);
+    Route::patch('/bagage/{id}/status', [BagageController::class, 'updateStatusBagage']);
 
     // Gates
     Route::get('/gates', [GateController::class, 'index']);
