@@ -40,7 +40,7 @@ class BagageController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'status_bagage_bagage_id' => 'required|exists:status_bagage_bagage,id',
+            'status_bagage_id' => 'required|exists:status_bagage,id',
             'omschrijving'     => 'nullable|string',
             'inlevertijd'      => 'required|date',
             'rfid'             => 'required|string|unique:bagage,rfid',
@@ -70,10 +70,10 @@ class BagageController extends Controller
         }
 
         $request->validate([
-            'status_bagage_bagage_id' => 'required|exists:status_bagage_bagage,id',
+            'status_bagage_id' => 'required|exists:status_bagage,id',
         ]);
 
-        $bagage->status_bagage_bagage_id = $request->status_bagage_bagage_id;
+        $bagage->status_bagage_id = $request->status_bagage_id;
         $bagage->save();
 
         return response()->json([
