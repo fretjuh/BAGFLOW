@@ -13,7 +13,7 @@ return new class extends Migration
 {
     Schema::create('status_bagage', function (Blueprint $table) {
         $table->id();
-        $table->enum('naam', ['onderweg', 'afgeleverd', 'zoek']);
+        $table->enum('naam', ['onderweg', 'afgeleverd', 'opgeslagen', 'zoek']);
         $table->string('positie', 50);
         $table->string('omschrijving', 255)->nullable();
         $table->timestamps();
