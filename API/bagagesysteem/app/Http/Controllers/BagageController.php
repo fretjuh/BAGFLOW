@@ -9,7 +9,7 @@ class BagageController extends Controller
 {
     public function index()
     {
-        $bagage = Bagage::with('status_bagage')->get();
+        $bagage = Bagage::with('status')->get();
 
         return response()->json([
             'success' => true,
@@ -19,7 +19,7 @@ class BagageController extends Controller
 
     public function show($id)
     {
-        $bagage = Bagage::with('status_bagage')->find($id);
+        $bagage = Bagage::with('status')->find($id);
 
         if (!$bagage) {
             return response()->json([
@@ -78,7 +78,7 @@ class BagageController extends Controller
 
         return response()->json([
             'success' => true,
-            'data' => $bagage->load('status_bagage')
+            'data' => $bagage->load('status')
         ]);
     }
 }
