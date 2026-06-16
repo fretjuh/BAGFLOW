@@ -52,4 +52,16 @@ class GateController extends Controller
             'data' => $gate
         ], 201);
     }
+
+    public function update(Request $request, Gate $gate)
+    {
+        $gate->update([
+            'is_open' => $request->is_open
+        ]);
+
+        return response()->json([
+            'success' => true,
+            'data' => $gate
+        ]);
+    }
 }

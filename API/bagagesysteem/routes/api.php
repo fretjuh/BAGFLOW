@@ -27,6 +27,7 @@ Route::prefix('v1')->group(function () {
     Route::get('/gates', [GateController::class, 'index']);
     Route::get('/gates/{id}', [GateController::class, 'show']);
     Route::post('/gates', [GateController::class, 'store']);
+    Route::put('/gates/{gate}', [GateController::class, 'update']);
 
     // Machines
     Route::get('/machines', [MachineController::class, 'index']);

@@ -6,7 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Gate extends Model
 {
-    protected $fillable = ['naam', 'positie', 'omschrijving'];
+    protected $fillable = [
+        'naam',
+        'positie',
+        'omschrijving',
+        'is_open'
+    ];
 
     public function vliegtuigen()
     {
