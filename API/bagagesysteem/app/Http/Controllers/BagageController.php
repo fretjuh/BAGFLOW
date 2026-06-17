@@ -17,6 +17,16 @@ class BagageController extends Controller
         ]);
     }
 
+    public function latestRfid()
+    {
+        $latestRfid = Bagage::latest('id')->value('rfid');
+
+        return response()->json([
+            'success' => true,
+            'rfid' => (int) ($latestRfid ?? 1000),
+        ]);
+    }
+
     public function show($id)
     {
         $bagage = Bagage::with('status')->find($id);
