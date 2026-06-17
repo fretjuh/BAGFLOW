@@ -9,9 +9,9 @@ class BagageSeeder extends Seeder
 {
     public function run(): void
     {
-        DB::table('bagages')->truncate();
+        DB::table('bagage')->truncate();
 
-        DB::table('bagages')->insert([
+        DB::table('bagage')->insert([
             [
                 'id' => 1,
                 'status_bagage_id' => 1,
