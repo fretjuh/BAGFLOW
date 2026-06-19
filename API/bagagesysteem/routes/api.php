@@ -23,6 +23,7 @@ Route::prefix('v1')->group(function () {
     Route::get('/bagage/{id}', [BagageController::class, 'show']);
     Route::post('/bagage', [BagageController::class, 'store']);
     Route::patch('/bagage/{id}/status', [BagageController::class, 'updateStatusBagage']);
+    Route::patch('/bagage/rfid/{rfid}/status', [BagageController::class, 'updateStatusBagageByRfid']);
 
     // Gates
     Route::get('/gates', [GateController::class, 'index']);
