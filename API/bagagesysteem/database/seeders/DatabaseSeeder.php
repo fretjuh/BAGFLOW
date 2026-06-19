@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             BagageSeeder::class,
             VliegtuigSeeder::class,
             VluchtschemaSeeder::class,
+            GebruikerSeeder::class,
         ]);
 
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
