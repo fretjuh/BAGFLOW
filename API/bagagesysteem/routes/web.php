@@ -7,6 +7,10 @@ Route::get('/', function () {
     return ['Laravel' => app()->version()];
 });
 
-Route::get('/Dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+Route::get('/dashboard', [DashboardController::class, 'index'])
+    ->name('dashboard.index');
 
 require __DIR__.'/auth.php';
+
+
+Route::get('/dashboard', [DashboardController::class, 'index']);
