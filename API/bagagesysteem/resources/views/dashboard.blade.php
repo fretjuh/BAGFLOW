@@ -16,6 +16,15 @@
                 title="Toggle dark/light theme">
                 <img src="/Img/SVG/moon.svg" width="24px" height="24px" alt="theme icon" />
             </button>
+            <form method="POST" action="/logout">
+
+                        @csrf
+
+                        <button>
+                        Uitloggen
+                        </button>
+
+             </form>
             <div class="menu-container">
                 <button class="header-button" id="menu-toggle" aria-label="Toggle navigation menu">
                     <img src="/Img/SVG/list.svg" width="25px" height="25px" alt="menu icon" />

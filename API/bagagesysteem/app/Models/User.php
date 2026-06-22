@@ -11,6 +11,7 @@ class User extends Authenticatable
 
     protected $table = 'gebruikers';
 
+
     protected $fillable = [
         'naam',
         'email',
@@ -18,14 +19,16 @@ class User extends Authenticatable
         'role',
     ];
 
+
     protected $hidden = [
         'wachtwoord',
-        'remember_token',
     ];
+
 
     protected $casts = [
         'wachtwoord' => 'hashed',
     ];
+
 
     public function getAuthPassword()
     {
