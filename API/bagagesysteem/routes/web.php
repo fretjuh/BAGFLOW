@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\SettingController;
 
 Route::get('/', function () {
     return ['Laravel' => app()->version()];
@@ -16,7 +17,7 @@ require __DIR__.'/auth.php';
 
 Route::get('/dashboard', [DashboardController::class, 'index']);
 
-Route::get('/settings', function () {
+Route::get('/instellingen', function () {
     return view('settings');
 });
 
@@ -36,4 +37,8 @@ Route::post('/logout',
 
 Route::get('/dashboard',
 [DashboardController::class,'index'])
+->middleware('auth');
+
+Route::get('/instellingen',
+[SettingController::class,'index'])
 ->middleware('auth');

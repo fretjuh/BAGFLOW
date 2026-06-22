@@ -73,15 +73,54 @@ if (buttonHoverColorPicker) {
   buttonHoverColorPicker.addEventListener('input', updateColorDisplay);
 }
 
+// --- Theme persistence ---
+function saveTheme(theme) {
+  localStorage.setItem('userTheme', theme);
+}
+
+function loadTheme() {
+  return localStorage.getItem('userTheme') || 'dark';
+}
+
+function updateThemeToggle(theme) {
+  const themeButton = document.getElementById('theme-toggle');
+  if (!themeButton) return;
+  const icon = themeButton.querySelector('img');
+  const isLight = theme === 'light';
+  if (icon) {
+    icon.src = isLight ? '/Img/SVG/sun.svg' : '/Img/SVG/moon.svg';
+    icon.alt = isLight ? 'light theme icon' : 'dark theme icon';
+  }
+  themeButton.setAttribute('aria-label', isLight ? 'Switch to dark theme' : 'Switch to light theme');
+  themeButton.title = isLight ? 'Schakel over naar donker thema' : 'Schakel over naar licht thema';
+}
+
+const themeToggle = document.getElementById('theme-toggle');
+if (themeToggle) {
+  const activeTheme = loadTheme();
+  applyTheme(activeTheme);
+  updateThemeToggle(activeTheme);
+
+  themeToggle.addEventListener('click', function() {
+    const nextTheme = loadTheme() === 'light' ? 'dark' : 'light';
+    applyTheme(nextTheme);
+    saveTheme(nextTheme);
+    updateThemeToggle(nextTheme);
+  });
+}
+
 // --- On submit ---
-document.getElementById('colors-form').addEventListener('submit', function(e) {
-  e.preventDefault();
+const colorsForm = document.getElementById('colors-form');
+if (colorsForm) {
+  colorsForm.addEventListener('submit', function(e) {
+    e.preventDefault();
 
-  const colors = {
-    button: document.getElementById('button-color-picker').value,
-    buttonHover: document.getElementById('button-hover-color-picker').value
-  };
+    const colors = {
+      button: document.getElementById('button-color-picker').value,
+      buttonHover: document.getElementById('button-hover-color-picker').value
+    };
 
-  applyColors(colors);
-  saveColors(colors);
-});
+    applyColors(colors);
+    saveColors(colors);
+  });
+}
