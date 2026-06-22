@@ -5,8 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 class Bagage extends Model
-{
-    protected $table = 'bagage';
+{   protected $table = 'bagage';
     protected $fillable = [
         'status_bagage_id',
         'omschrijving',

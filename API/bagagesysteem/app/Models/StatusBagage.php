@@ -8,11 +8,18 @@ class StatusBagage extends Model
 {
     protected $table = 'status_bagage';
 
-    protected $fillable = ['naam', 'positie', 'omschrijving'];
+    protected $fillable = [
+        'naam',
+        'positie',
+        'omschrijving'
+    ];
 
-    public function bagage()
+    public function bagages()
     {
-        return $this->hasMany(Bagage::class);
+        return $this->hasMany(
+            Bagage::class,
+            'status_bagage_id'
+        );
     }
 
     public function vluchtschemas()
