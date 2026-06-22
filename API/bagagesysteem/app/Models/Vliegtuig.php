@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Vliegtuig extends Model
 {
+    protected $table = 'vliegtuigen';
     protected $fillable = [
         'vluchtschema_id',
         'gate_id',

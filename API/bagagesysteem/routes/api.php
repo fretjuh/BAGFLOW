@@ -19,14 +19,17 @@ Route::prefix('v1')->group(function () {
 
     // Bagage
     Route::get('/bagage', [BagageController::class, 'index']);
+    Route::get('/bagage/latest-rfid', [BagageController::class, 'latestRfid']);
     Route::get('/bagage/{id}', [BagageController::class, 'show']);
     Route::post('/bagage', [BagageController::class, 'store']);
     Route::patch('/bagage/{id}/status', [BagageController::class, 'updateStatusBagage']);
+    Route::patch('/bagage/rfid/{rfid}/status', [BagageController::class, 'updateStatusBagageByRfid']);
 
     // Gates
     Route::get('/gates', [GateController::class, 'index']);
     Route::get('/gates/{id}', [GateController::class, 'show']);
     Route::post('/gates', [GateController::class, 'store']);
+    Route::put('/gates/{gate}', [GateController::class, 'update']);
 
     // Machines
     Route::get('/machines', [MachineController::class, 'index']);
