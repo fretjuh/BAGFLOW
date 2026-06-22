@@ -14,3 +14,7 @@ require __DIR__.'/auth.php';
 
 
 Route::get('/dashboard', [DashboardController::class, 'index']);
+
+Route::get('/settings', function () {
+    return view('settings');
+});
