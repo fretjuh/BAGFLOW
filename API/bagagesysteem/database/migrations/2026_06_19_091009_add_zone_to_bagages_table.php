@@ -8,14 +8,14 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::table('bagages', function (Blueprint $table) {
+        Schema::table('bagage', function (Blueprint $table) {
             $table->integer('zone')->default(0);
         });
     }
 
     public function down(): void
     {
-        Schema::table('bagages', function (Blueprint $table) {
+        Schema::table('bagage', function (Blueprint $table) {
             $table->dropColumn('zone');
         });
     }

@@ -398,7 +398,6 @@ body {
 
 .dashboard-boxes-1 {
   background-color: var(--box-color);
-  display: flex;
   justify-content: center;
   align-items: center;
   width: 275px;
@@ -410,7 +409,6 @@ body {
 
 .dashboard-boxes-2 {
   background-color: var(--box-color);
-  display: flex;
   justify-content: center;
   align-items: center;
   width: 371px;
@@ -422,7 +420,6 @@ body {
 
 .dashboard-boxes-3 {
   background-color: var(--box-color);
-  display: flex;
   justify-content: center;
   align-items: center;
   width: 564px;
@@ -434,7 +431,6 @@ body {
 
 .dashboard-boxes-4 {
   background-color: var(--box-color);
-  display: flex;
   justify-content: center;
   align-items: center;
   width: 217px;
@@ -482,3 +478,23 @@ body {
     padding: 2rem;
   }
 }
+
+.data {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--text-color);
+  font-weight: bolder;
+  font-size: 30px;
+  vertical-align: center;
+}
+
+.data-zones {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: bolder;
+  font-size: 30px;
+  vertical-align: center;
+}
+

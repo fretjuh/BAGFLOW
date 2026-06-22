@@ -14,15 +14,15 @@ class StatusBagageSeeder extends Seeder
         DB::table('status_bagage')->insert([
             [
                 'id' => 1,
-                'naam' => 'onderweg',
+                'naam' => 'inname',
                 'positie' => 1,
-                'omschrijving' => 'Koffer wordt gesorteerd.',
+                'omschrijving' => 'Koffer is ingevoerd in het systeem.',
             ],
             [
                 'id' => 2,
-                'naam' => 'afgeleverd',
+                'naam' => 'sorteren',
                 'positie' => 2,
-                'omschrijving' => 'Afgeleverd bij de gate of bagage ophaal punt.',
+                'omschrijving' => 'Koffer wordt gesorteerd.',
             ],
             [
                 'id' => 3,
@@ -32,9 +32,15 @@ class StatusBagageSeeder extends Seeder
             ],
             [
                 'id' => 4,
-                'naam' => 'zoek',
+                'naam' => 'afgeleverd',
                 'positie' => 4,
-                'omschrijving' => 'Contacteer de helpdesk voor verdere informatie.',
+                'omschrijving' => 'Bagage is afgeleverd bij de passagier.',
+            ],
+            [
+                'id' => 5,
+                'naam' => 'zoek',
+                'positie' => 5,
+                'omschrijving' => 'Bagage is zoek. Contacteer de helpdesk voor verdere informatie.',
             ],
         ]);
     }
