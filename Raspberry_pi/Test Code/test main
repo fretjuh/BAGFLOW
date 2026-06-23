@@ -1,0 +1,63 @@
+from api_client import (
+    get_gates,
+    get_machines
+)
+
+from logger import write_log
+
+
+try:
+
+    gate_data = get_gates()
+
+    machine_data = get_machines()
+
+    print("GATES")
+    print("-----")
+
+    for gate in gate_data["data"]:
+
+        print(
+            gate["naam"],
+            gate["is_open"]
+        )
+
+    print()
+
+    print("MACHINES")
+    print("--------")
+
+    active_machines = 0
+    inactive_machines = 0
+    maintenance_machines = 0
+    error_machines = 0
+
+    for machine in machine_data["data"]:
+
+        status = machine["status"]["naam"]
+
+        if status == "actief":
+            active_machines += 1
+
+        elif status == "inactief":
+            inactive_machines += 1
+
+        elif status == "onderhoud":
+            maintenance_machines += 1
+
+        elif status == "error":
+            error_machines += 1
+
+    print("Active:", active_machines)
+    print("Inactive:", inactive_machines)
+    print("Maintenance:", maintenance_machines)
+    print("Errors:", error_machines)
+
+except Exception as error:
+
+    write_log(
+        "logs/errors.log",
+        str(error)
+    )
+
+    print(error)
